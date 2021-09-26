@@ -13,10 +13,10 @@ config :etl,
 # Configures the endpoint
 config :etl, EtlWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "GM8jbmGdHRUksVHiHokuEf44Uca6YBHWM4JWxrh1UPNFbkP/ViUkszPxrsrLgeTf",
-  render_errors: [view: EtlWeb.ErrorView, accepts: ~w(html json), layout: false],
+  secret_key_base: "C9jUY6dyzJlo9SWAz/vJpt12Bn6QSMzo9HVVF0jJTfgQ6Q500ErDyqSTY7zu1kCH",
+  render_errors: [view: EtlWeb.ErrorView, accepts: ~w(json), layout: false],
   pubsub_server: Etl.PubSub,
-  live_view: [signing_salt: "Ux91b6WJ"]
+  live_view: [signing_salt: "e/+EzB89"]
 
 # Configures Elixir's Logger
 config :logger, :console,
