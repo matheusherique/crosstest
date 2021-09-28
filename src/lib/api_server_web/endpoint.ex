@@ -7,7 +7,7 @@ defmodule ApiServerWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_api_server_key",
-    signing_salt: "oHkXc8c4"
+    signing_salt: "JulMv7if"
   ]
 
   socket "/socket", ApiServerWeb.UserSocket,
