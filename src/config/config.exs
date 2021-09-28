@@ -7,16 +7,13 @@
 # General application configuration
 use Mix.Config
 
-config :etl,
-  ecto_repos: [Etl.Repo]
-
 # Configures the endpoint
-config :etl, EtlWeb.Endpoint,
+config :api_server, ApiServerWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "GM8jbmGdHRUksVHiHokuEf44Uca6YBHWM4JWxrh1UPNFbkP/ViUkszPxrsrLgeTf",
-  render_errors: [view: EtlWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: Etl.PubSub,
-  live_view: [signing_salt: "Ux91b6WJ"]
+  secret_key_base: "RusiqGy2VFFsT7jo1frhcfZSwixlyVjfpT4X4HJuRBkyP08SdRleWF9pnDWIJODM",
+  render_errors: [view: ApiServerWeb.ErrorView, accepts: ~w(json), layout: false],
+  pubsub_server: ApiServer.PubSub,
+  live_view: [signing_salt: "PgYlgCPc"]
 
 # Configures Elixir's Logger
 config :logger, :console,

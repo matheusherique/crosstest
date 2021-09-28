@@ -1,8 +1,8 @@
-defmodule EtlWeb.UserSocket do
+defmodule ApiServerWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", EtlWeb.RoomChannel
+  # channel "room:*", ApiServerWeb.RoomChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
@@ -27,7 +27,7 @@ defmodule EtlWeb.UserSocket do
   # Would allow you to broadcast a "disconnect" event and terminate
   # all active sockets and channels for a given user:
   #
-  #     EtlWeb.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
+  #     ApiServerWeb.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
   #
   # Returning `nil` makes this socket anonymous.
   @impl true

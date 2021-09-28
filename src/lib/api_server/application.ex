@@ -1,4 +1,4 @@
-defmodule Etl.Application do
+defmodule ApiServer.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -7,28 +7,26 @@ defmodule Etl.Application do
 
   def start(_type, _args) do
     children = [
-      # Start the Ecto repository
-      Etl.Repo,
       # Start the Telemetry supervisor
-      EtlWeb.Telemetry,
+      ApiServerWeb.Telemetry,
       # Start the PubSub system
-      {Phoenix.PubSub, name: Etl.PubSub},
+      {Phoenix.PubSub, name: ApiServer.PubSub},
       # Start the Endpoint (http/https)
-      EtlWeb.Endpoint
-      # Start a worker by calling: Etl.Worker.start_link(arg)
-      # {Etl.Worker, arg}
+      ApiServerWeb.Endpoint
+      # Start a worker by calling: ApiServer.Worker.start_link(arg)
+      # {ApiServer.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Etl.Supervisor]
+    opts = [strategy: :one_for_one, name: ApiServer.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    EtlWeb.Endpoint.config_change(changed, removed)
+    ApiServerWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

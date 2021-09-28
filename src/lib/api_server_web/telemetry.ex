@@ -1,4 +1,4 @@
-defmodule EtlWeb.Telemetry do
+defmodule ApiServerWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -30,13 +30,6 @@ defmodule EtlWeb.Telemetry do
         unit: {:native, :millisecond}
       ),
 
-      # Database Metrics
-      summary("etl.repo.query.total_time", unit: {:native, :millisecond}),
-      summary("etl.repo.query.decode_time", unit: {:native, :millisecond}),
-      summary("etl.repo.query.query_time", unit: {:native, :millisecond}),
-      summary("etl.repo.query.queue_time", unit: {:native, :millisecond}),
-      summary("etl.repo.query.idle_time", unit: {:native, :millisecond}),
-
       # VM Metrics
       summary("vm.memory.total", unit: {:byte, :kilobyte}),
       summary("vm.total_run_queue_lengths.total"),
@@ -49,7 +42,7 @@ defmodule EtlWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {EtlWeb, :count_users, []}
+      # {ApiServerWeb, :count_users, []}
     ]
   end
 end

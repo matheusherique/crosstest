@@ -1,28 +1,13 @@
-defmodule EtlWeb.Router do
-  use EtlWeb, :router
-
-  pipeline :browser do
-    plug :accepts, ["html"]
-    plug :fetch_session
-    plug :fetch_flash
-    plug :protect_from_forgery
-    plug :put_secure_browser_headers
-  end
+defmodule ApiServerWeb.Router do
+  use ApiServerWeb, :router
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/", EtlWeb do
-    pipe_through :browser
-
-    get "/", PageController, :index
+  scope "/api", ApiServerWeb do
+    pipe_through :api
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", EtlWeb do
-  #   pipe_through :api
-  # end
 
   # Enables LiveDashboard only for development
   #
@@ -35,8 +20,8 @@ defmodule EtlWeb.Router do
     import Phoenix.LiveDashboard.Router
 
     scope "/" do
-      pipe_through :browser
-      live_dashboard "/dashboard", metrics: EtlWeb.Telemetry
+      pipe_through [:fetch_session, :protect_from_forgery]
+      live_dashboard "/dashboard", metrics: ApiServerWeb.Telemetry
     end
   end
 end

@@ -1,12 +1,12 @@
-defmodule EtlWeb do
+defmodule ApiServerWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use EtlWeb, :controller
-      use EtlWeb, :view
+      use ApiServerWeb, :controller
+      use ApiServerWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,19 +19,19 @@ defmodule EtlWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: EtlWeb
+      use Phoenix.Controller, namespace: ApiServerWeb
 
       import Plug.Conn
-      import EtlWeb.Gettext
-      alias EtlWeb.Router.Helpers, as: Routes
+      import ApiServerWeb.Gettext
+      alias ApiServerWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/etl_web/templates",
-        namespace: EtlWeb
+        root: "lib/api_server_web/templates",
+        namespace: ApiServerWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -54,21 +54,18 @@ defmodule EtlWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import EtlWeb.Gettext
+      import ApiServerWeb.Gettext
     end
   end
 
   defp view_helpers do
     quote do
-      # Use all HTML functionality (forms, tags, etc)
-      use Phoenix.HTML
-
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import EtlWeb.ErrorHelpers
-      import EtlWeb.Gettext
-      alias EtlWeb.Router.Helpers, as: Routes
+      import ApiServerWeb.ErrorHelpers
+      import ApiServerWeb.Gettext
+      alias ApiServerWeb.Router.Helpers, as: Routes
     end
   end
 

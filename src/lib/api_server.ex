@@ -1,6 +1,6 @@
-defmodule Etl do
+defmodule ApiServer do
   @moduledoc """
-  Etl keeps the contexts that define your domain
+  ApiServer keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless
